@@ -1,21 +1,26 @@
 "use client";
 // components/AdminInterface.js
-import React, { useState } from 'react';
-import { useTasks } from '../components/TaskContext';
+import React, { useState } from "react";
+import { useTasks } from "../components/TaskContext";
+import Link from "next/link";
+import moment from 'moment-timezone';
 
 const AdminInterface = () => {
   const { addTask } = useTasks();
-  const [taskInput, setTaskInput] = useState('');
+  const { tasks } = useTasks();
+  const [taskInput, setTaskInput] = useState("");
 
   const handleAddTask = () => {
-    if (taskInput.trim() !== '') {
+    if (taskInput.trim() !== "") {
       addTask(taskInput);
-      setTaskInput('');
+      setTaskInput("");
     }
+    console.log(tasks);
   };
 
   return (
     <div>
+      <Link href="/">Go to Home Page</Link>
       <h1>Admin Interface</h1>
       <input
         type="text"

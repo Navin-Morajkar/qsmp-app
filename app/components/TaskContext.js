@@ -1,10 +1,11 @@
 // tasksContext.js
+"use client";
 import React, { createContext, useState, useContext } from 'react';
 
 const TasksContext = createContext();
 
 export const TasksProvider = ({ children }) => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(["Hello","hi"]);
 
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
